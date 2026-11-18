@@ -125,7 +125,7 @@ function importPath(value, importer) {
   if (path.startsWith('@/')) return resolve(sourceRoot, path.slice(2));
   if (path.startsWith('/src/') || path.startsWith('src/'))
     return resolve(sourceRoot, path.replace(/^\/?src\//, ''));
-  if (/^(features|pages|shared)\//.test(path)) return resolve(sourceRoot, path);
+  if (/^(experiments|features|pages|shared)\//.test(path)) return resolve(sourceRoot, path);
   return path.startsWith('.') ? resolve(dirname(importer), path) : null;
 }
 
@@ -142,15 +142,18 @@ export function architectureViolations(source, file) {
     const target = relative(sourceRoot, path).replaceAll('\\', '/');
     const [targetLayer, targetFeature, ...inside] = target.split('/');
     const forbidden =
-      (layer === 'shared' && ['features', 'pages'].includes(targetLayer)) ||
-      (layer === 'features' && targetLayer === 'pages') ||
-      (layer === 'features' && targetLayer === 'features' && feature !== targetFeature);
+      (layer === 'shared' && ['features', 'pages', 'experiments'].includes(targetLayer)) ||
+      (layer === 'features' && ['pages', 'experiments'].includes(targetLayer)) ||
+      (layer === 'pages' && targetLayer === 'experiments') ||
+      (layer === 'features' && targetLayer === 'features' && feature !== targetFeature) ||
+      (layer === 'experiments' && targetLayer === 'pages') ||
+      (layer === 'experiments' && targetLayer === 'experiments' && feature !== targetFeature);
     if (forbidden)
       return [
-        `${file}:${line}: импорт «${value}» нарушает FSD. Перенеси общий контракт в shared, а связь сценариев — в pages (pages → features → shared).`,
+        `${file}:${line}: импорт «${value}» нарушает FSD. Перенеси общий контракт в shared. Каждый сценарий должен оставаться изолированным.`,
       ];
     if (
-      layer === 'pages' &&
+      ['pages', 'experiments'].includes(layer) &&
       targetLayer === 'features' &&
       inside.length &&
       !/^index(?:\.[cm]?[jt]s)?$/.test(inside.join('/'))

@@ -1,5 +1,5 @@
 {
-  "name": "daybeat",
+  "name": "experiment-stand",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -12,8 +12,8 @@
     "preview": "vite preview",
     "test": "node --test tests/unit/*.test.js",
     "test:e2e": "playwright test",
-    "format": "prettier --config .prettierrc.json --write src tests docs ../README.md ../AGENTS.md vite.config.js playwright.config.js package.json .prettierrc.json",
-    "format:check": "prettier --config .prettierrc.json --check src tests docs ../README.md ../AGENTS.md vite.config.js playwright.config.js package.json .prettierrc.json",
+    "format": "prettier --config .prettierrc.json --write src tests ../README.md ../AGENTS.md vite.config.js playwright.config.js package.json .prettierrc.json",
+    "format:check": "prettier --config .prettierrc.json --check src tests ../README.md ../AGENTS.md vite.config.js playwright.config.js package.json .prettierrc.json",
     "qa": "node --test tests/unit/*.test.js && npm run build && npx playwright test"
   },
   "dependencies": {

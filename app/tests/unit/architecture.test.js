@@ -4,8 +4,8 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { sourceRoot, sourceFiles, architectureViolations } from '../lib/source-inspection.js';
 
-test('FSD imports follow pages → features → shared, including every shared source', () => {
-  const errors = ['shared', 'features', 'pages'].flatMap((layer) =>
+test('слои и сценарии соблюдают границы импортов', () => {
+  const errors = ['shared', 'features', 'pages', 'experiments', 'experiments'].flatMap((layer) =>
     sourceFiles(resolve(sourceRoot, layer)).flatMap((file) =>
       architectureViolations(readFileSync(file, 'utf8'), file),
     ),
@@ -16,10 +16,10 @@ test('FSD imports follow pages → features → shared, including every shared s
 test('architecture sensor catches aliases, relative paths, exports and dynamic imports', () => {
   const file = resolve(sourceRoot, 'shared/lib/example.js');
   for (const source of [
-    "import x from '@/features/health';",
+    "import x from '@/features/example';",
     "export { x } from '../../pages/home/example.js';",
-    "import('/src/features/health/index.js?raw');",
-    "require('features/assistant/index.js');",
+    "import('/src/features/example/index.js?raw');",
+    "require('features/example/index.js');",
     'import(`@/pages/home/example.js`);',
     'import(variablePath);',
   ])
@@ -40,21 +40,21 @@ test('architecture sensor catches aliases, relative paths, exports and dynamic i
   );
   assert.equal(
     architectureViolations(
-      '@use "../../features/health/style";',
+      '@use "../../features/example/style";',
       resolve(sourceRoot, 'shared/ui/example.scss'),
     ).length,
     1,
   );
   assert.equal(
     architectureViolations(
-      '@import url("../../features/health/style.css");',
+      '@import url("../../features/example/style.css");',
       resolve(sourceRoot, 'shared/ui/example.scss'),
     ).length,
     1,
   );
   assert.equal(
     architectureViolations(
-      "import x from '@/features/assistant/ui/X.vue';",
+      "import x from '@/features/example/ui/X.vue';",
       resolve(sourceRoot, 'pages/home/Example.vue.js'),
     ).length,
     1,

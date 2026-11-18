@@ -1,67 +1,120 @@
 <template>
-  <main class="app-stage" :class="{ 'app-stage--mobile': mobilePreview }">
-    <component :is="mobilePreview ? TemporaryMobilePreview : PhonePreview" :light="home">
-      <HomePage v-if="home" :key="hash" :initial-view="initialView" />
-      <Transition name="onboarding-exit">
-        <OnboardingPage v-if="!home" @complete="home = true" />
-      </Transition>
-    </component>
+  <header class="masthead">
+    <div class="container topbar">
+      <a href="#catalog" class="brand">Стенд сценариев</a>
+      <nav aria-label="Разделы стенда">
+        <a href="#catalog" :aria-current="route.view === 'catalog' ? 'page' : undefined">Каталог</a>
+      </nav>
+    </div>
+  </header>
+
+  <main ref="mainElement" class="container content">
+    <CatalogPage v-show="route.view === 'catalog'" :entries="experiments" />
+    <section v-if="route.view !== 'catalog'" aria-labelledby="scenario-title">
+      <a href="#catalog" class="back">← К каталогу</a>
+      <template v-if="selected">
+        <h1 id="scenario-title" tabindex="-1">{{ selected.title }}</h1>
+        <div class="scenario-content">
+          <Suspense>
+            <component :is="scenario" :key="selected.slug" />
+            <template #fallback><p role="status">Загружаем сценарий…</p></template>
+          </Suspense>
+        </div>
+      </template>
+      <template v-else>
+        <h1 id="scenario-title" tabindex="-1">Сценарий не найден</h1>
+        <p class="scenario-content">Проверьте ссылку или выберите другой сценарий.</p>
+      </template>
+    </section>
   </main>
 </template>
 
 <script setup>
-import { computed, ref, watch } from 'vue';
-import PhonePreview from '@/components/PhonePreview.vue';
-import TemporaryMobilePreview from '@/components/temporary-mobile/TemporaryMobilePreview.vue';
-import HomePage from '@/pages/home/HomePage.vue';
-import OnboardingPage from '@/pages/onboarding/OnboardingPage.vue';
-import { useLocationHash } from '@/shared/composables/useLocationHash';
+import { computed, defineAsyncComponent, nextTick, ref, watch } from 'vue';
+import { experiments, experimentsBySlug } from '@/experiments/registry.js';
+import { parseCatalogRoute } from '@/features/catalog';
+import CatalogPage from '@/pages/catalog/CatalogPage.vue';
+import ScenarioLoadError from '@/pages/catalog/ScenarioLoadError.vue';
+import { useLocationHash } from '@/shared/composables/useLocationHash.js';
 
 const hash = useLocationHash();
-// Временный режим включается только явным ?mobile=1 перед hash экрана.
-const mobilePreview = new URLSearchParams(window.location.search).get('mobile') === '1';
-const views = { '#home': 'home', '#assistant': 'assistant', '#pulse': 'pulse' };
-const initialView = computed(() => views[hash.value] || 'home');
-const home = ref(Boolean(views[hash.value]));
+const mainElement = ref(null);
+const route = computed(() => parseCatalogRoute(hash.value));
+const selected = computed(() => experimentsBySlug.get(route.value.slug));
+const scenario = computed(
+  () =>
+    selected.value &&
+    defineAsyncComponent({
+      loader: selected.value.load,
+      errorComponent: ScenarioLoadError,
+    }),
+);
 
-// Прямой адрес открывает нужный экран без повторного онбординга.
-watch(hash, () => {
-  home.value = Boolean(views[hash.value]);
+watch(route, async ({ view }) => {
+  await nextTick();
+  const headingId = view === 'catalog' ? '#catalog-title' : '#scenario-title';
+  mainElement.value?.querySelector(headingId)?.focus();
+  window.scrollTo(0, 0);
 });
 </script>
 
 <style scoped lang="scss">
-.app-stage {
-  --motion-exit: 950ms;
-
-  display: grid;
-  place-items: center;
-  min-height: 100vh;
-  min-height: 100dvh;
-  padding: var(--spacing-3);
-  background: #101013;
-  &--mobile {
-    display: block;
-    padding: 0;
-  }
-}
-.onboarding-exit-leave-active {
-  z-index: 1;
-  pointer-events: none;
-  transition:
-    opacity var(--motion-exit) var(--ease-in-out),
-    filter var(--motion-exit),
-    transform var(--motion-exit) var(--ease-in-out);
-}
-.onboarding-exit-leave-to {
-  opacity: 0;
-  filter: blur(64px);
-  transform: translateY(-40px) scale(1.12);
+.masthead {
+  border-bottom: 1px solid var(--color-border-default);
+  background: var(--color-bg-surface);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .app-stage {
-    --motion-exit: 1ms;
-  }
+.container {
+  width: min(100%, var(--width-catalog));
+  margin-inline: auto;
+  padding-inline: var(--spacing-5);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 4rem;
+  gap: var(--spacing-4);
+}
+
+.topbar a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--size-touch);
+  color: var(--color-fg-default);
+  text-decoration: none;
+}
+
+.topbar a:hover {
+  text-decoration: underline;
+}
+
+.brand {
+  font-weight: 750;
+}
+
+.topbar [aria-current='page'] {
+  color: var(--color-accent-default);
+  font-weight: 650;
+}
+
+.content {
+  padding-block: clamp(var(--spacing-7), 6vw, var(--spacing-10));
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--size-touch);
+  margin-bottom: var(--spacing-2);
+}
+
+.scenario-content {
+  margin-top: var(--spacing-5);
+}
+
+#scenario-title {
+  overflow-wrap: anywhere;
 }
 </style>

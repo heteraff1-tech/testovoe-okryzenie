@@ -4,9 +4,9 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { sourceRoot, sourceFiles, styleViolations, tokenNames } from '../lib/source-inspection.js';
 
-test('features and pages use shared color and spacing tokens', () => {
+test('features, pages and experiments use shared color and spacing tokens', () => {
   const names = tokenNames();
-  const errors = ['features', 'pages'].flatMap((layer) =>
+  const errors = ['features', 'pages', 'experiments'].flatMap((layer) =>
     sourceFiles(resolve(sourceRoot, layer), new Set(['.vue', '.scss'])).flatMap((file) =>
       styleViolations(readFileSync(file, 'utf8'), file, names),
     ),

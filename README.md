@@ -13,4 +13,4 @@ npx playwright install chromium
 npm run qa
 ```
 
-Cloudflare Pages собирает `app/` с помощью `npm test && npm run build` и публикует `app/dist/`. Ветка `main` обновляет [стабильный каталог](https://testovoe-okryzenie.pages.dev), ветки `experiment/*` получают отдельные превью после push.
+Cloudflare Pages собирает `app/` с помощью `npm test && npm run build` и публикует `app/dist/`. Для `main` предназначен [стабильный каталог](https://testovoe-okryzenie.pages.dev), для веток `experiment/*` настроены отдельные превью. Статус сборок виден в Cloudflare Pages. Если после push сборка не появилась, проверь доступ приложения Cloudflare Workers & Pages к этому репозиторию в GitHub Apps. До восстановления автозапуска сборку можно запустить для нужной ветки через Cloudflare Pages.

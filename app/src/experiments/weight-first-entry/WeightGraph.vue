@@ -1,10 +1,10 @@
 <template>
   <figure class="graph" aria-label="Динамика веса">
     <figcaption>
-      <p v-if="weight === null" class="graph-title">Динамика веса</p>
+      <p v-if="weight === null" class="heading-h2">Динамика веса</p>
       <template v-else>
-        <p class="graph-title" role="status">Запись сохранена</p>
-        <p class="graph-note">Первый замер</p>
+        <p class="heading-h2" role="status">Запись сохранена</p>
+        <p class="graph-note text-small">Первый замер</p>
       </template>
     </figcaption>
 
@@ -12,12 +12,14 @@
       <div class="grid" aria-hidden="true"></div>
       <div class="reading" :class="{ 'reading--saved': weight !== null }">
         <span class="point" aria-hidden="true"></span>
-        <span v-if="weight !== null" class="value">{{ weight }} кг</span>
+        <span v-if="weight !== null" class="value text-label">{{ weight }} кг</span>
       </div>
     </div>
 
-    <p class="graph-note today">Сегодня</p>
-    <p v-if="weight === null">Запишите вес. Со временем здесь будет видно, как он меняется.</p>
+    <p class="graph-note today text-caption">Сегодня</p>
+    <p v-if="weight === null" class="text-body">
+      Запишите вес. Со временем здесь будет видно, как он меняется.
+    </p>
   </figure>
 </template>
 
@@ -33,19 +35,13 @@ defineProps({
   gap: var(--spacing-2);
   margin: 0;
   padding: var(--spacing-4);
-  border-radius: var(--radius-16);
-  background: var(--color-bg-page);
+  border-radius: var(--radius-24);
+  background: var(--color-bg-surface);
   overflow-wrap: anywhere;
 }
 
-.graph-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-}
-
 .graph-note {
-  color: var(--color-fg-muted);
-  font-size: 0.8125rem;
+  color: var(--color-neutral-on-container);
 }
 
 .plot {
@@ -83,9 +79,9 @@ defineProps({
   inline-size: var(--spacing-2);
   block-size: var(--spacing-2);
   flex: none;
-  border: 1px solid var(--color-fg-muted);
+  border: 1px solid var(--color-neutral-on-container);
   border-radius: var(--radius-full);
-  background: var(--color-bg-page);
+  background: var(--color-bg-surface);
 }
 
 .reading--saved .point {
@@ -94,9 +90,7 @@ defineProps({
 }
 
 .value {
-  background: var(--color-bg-page);
-  font-size: 0.875rem;
-  font-weight: 650;
+  background: var(--color-bg-surface);
 }
 
 .today {

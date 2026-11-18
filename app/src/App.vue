@@ -14,7 +14,7 @@
       <a href="#catalog" class="back">← К каталогу</a>
       <template v-if="selected">
         <h1 id="scenario-title" tabindex="-1">{{ selected.title }}</h1>
-        <div class="scenario-content">
+        <div class="scenario-content" data-theme="light">
           <Suspense>
             <component :is="scenario" :key="selected.slug" />
             <template #fallback><p role="status">Загружаем сценарий…</p></template>
@@ -60,8 +60,8 @@ watch(route, async ({ view }) => {
 
 <style scoped lang="scss">
 .masthead {
-  border-bottom: 1px solid var(--color-border-default);
-  background: var(--color-bg-surface);
+  border-bottom: 1px solid var(--stand-color-border-default);
+  background: var(--stand-color-bg-surface);
 }
 
 .container {
@@ -82,7 +82,7 @@ watch(route, async ({ view }) => {
   display: inline-flex;
   align-items: center;
   min-height: var(--size-touch);
-  color: var(--color-fg-default);
+  color: var(--stand-color-fg-default);
   text-decoration: none;
 }
 
@@ -95,7 +95,7 @@ watch(route, async ({ view }) => {
 }
 
 .topbar [aria-current='page'] {
-  color: var(--color-accent-default);
+  color: var(--stand-color-accent-default);
   font-weight: 650;
 }
 

@@ -108,7 +108,7 @@ h1 {
 
 .catalog-heading p {
   margin-top: var(--spacing-2);
-  color: var(--color-fg-muted);
+  color: var(--stand-color-fg-muted);
 }
 
 .controls {
@@ -123,10 +123,10 @@ h1 {
 .controls input {
   width: 100%;
   padding: var(--spacing-3) var(--spacing-4);
-  border: 1px solid var(--color-border-control);
+  border: 1px solid var(--stand-color-border-control);
   border-radius: var(--radius-12);
-  background: var(--color-bg-surface);
-  color: var(--color-fg-default);
+  background: var(--stand-color-bg-surface);
+  color: var(--stand-color-fg-default);
 }
 
 .filters,
@@ -144,16 +144,16 @@ h1 {
 button {
   min-height: var(--size-touch);
   padding: var(--spacing-2) var(--spacing-4);
-  border: 1px solid var(--color-border-control);
+  border: 1px solid var(--stand-color-border-control);
   border-radius: var(--radius-full);
-  background: var(--color-bg-surface);
+  background: var(--stand-color-bg-surface);
   cursor: pointer;
 }
 
 button[aria-pressed='true'] {
-  border-color: var(--color-accent-default);
-  background: var(--color-accent-soft);
-  color: var(--color-accent-default);
+  border-color: var(--stand-color-accent-default);
+  background: var(--stand-color-accent-soft);
+  color: var(--stand-color-accent-default);
   font-weight: 650;
 }
 
@@ -164,7 +164,7 @@ button:disabled {
 
 .result-count {
   margin-block: var(--spacing-6) var(--spacing-3);
-  color: var(--color-fg-muted);
+  color: var(--stand-color-fg-muted);
   font-size: 0.875rem;
 }
 
@@ -183,20 +183,20 @@ button:disabled {
   gap: var(--spacing-2);
   height: 100%;
   padding: var(--spacing-5);
-  border: 1px solid var(--color-border-default);
+  border: 1px solid var(--stand-color-border-default);
   border-radius: var(--radius-16);
-  background: var(--color-bg-surface);
-  color: var(--color-fg-default);
+  background: var(--stand-color-bg-surface);
+  color: var(--stand-color-fg-default);
   overflow-wrap: anywhere;
   text-decoration: none;
 }
 
 .scenario:hover {
-  border-color: var(--color-accent-default);
+  border-color: var(--stand-color-accent-default);
 }
 
 .scenario:hover strong {
-  color: var(--color-accent-default);
+  color: var(--stand-color-accent-default);
   text-decoration: underline;
 }
 
@@ -205,7 +205,7 @@ button:disabled {
   justify-content: space-between;
   align-items: baseline;
   gap: var(--spacing-2);
-  color: var(--color-fg-muted);
+  color: var(--stand-color-fg-muted);
   font-size: 0.8125rem;
 }
 
@@ -214,7 +214,7 @@ button:disabled {
 }
 
 .summary {
-  color: var(--color-fg-muted);
+  color: var(--stand-color-fg-muted);
 }
 
 .pagination {
@@ -223,7 +223,7 @@ button:disabled {
 }
 
 .pagination span {
-  color: var(--color-fg-muted);
+  color: var(--stand-color-fg-muted);
   font-size: 0.875rem;
 }
 
@@ -232,9 +232,9 @@ button:disabled {
   justify-items: start;
   gap: var(--spacing-2);
   padding: var(--spacing-6);
-  border: 1px solid var(--color-border-default);
+  border: 1px solid var(--stand-color-border-default);
   border-radius: var(--radius-16);
-  background: var(--color-bg-surface);
+  background: var(--stand-color-bg-surface);
 }
 
 .empty h2 {
@@ -242,6 +242,6 @@ button:disabled {
 }
 
 .empty p {
-  color: var(--color-fg-muted);
+  color: var(--stand-color-fg-muted);
 }
 </style>

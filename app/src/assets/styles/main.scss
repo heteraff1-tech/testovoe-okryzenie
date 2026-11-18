@@ -1,5 +1,19 @@
+@use 'fonts';
 @use 'tokens/color';
 @use 'tokens/markup';
+@use 'tokens/text-style';
+@use 'tokens/effects';
+@use 'tokens/catalog';
+
+:root {
+  --motion-ui: 200ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-dissolve: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-dissolve-opacity: cubic-bezier(0.55, 0, 0.7, 1);
+  --ease-wave: cubic-bezier(0.34, 0.18, 0.38, 1);
+  --ease-reveal: cubic-bezier(0.4, 0, 0.3, 1);
+}
 
 *,
 *::before,
@@ -9,8 +23,8 @@
 
 body {
   margin: 0;
-  background: var(--color-bg-page);
-  color: var(--color-fg-default);
+  background: var(--stand-color-bg-page);
+  color: var(--stand-color-fg-default);
   font:
     1rem/1.5 system-ui,
     sans-serif;
@@ -26,11 +40,11 @@ button {
 }
 
 a {
-  color: var(--color-accent-default);
+  color: var(--stand-color-accent-default);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-focus);
+  outline: 2px solid var(--stand-color-focus);
   outline-offset: 3px;
 }
 
@@ -38,4 +52,15 @@ h1,
 h2,
 p {
   margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-ui: 1ms;
+  }
+}
+
+.scenario-content {
+  font-family: var(--font-text);
+  color: var(--color-fg-default);
 }

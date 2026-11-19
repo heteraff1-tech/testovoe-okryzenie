@@ -43,10 +43,11 @@ function navigate(id) {
         <select
           id="experiment"
           class="form-select"
+          :disabled="experiments.length === 0"
           :value="experiment?.id ?? ''"
           @change="emit('select', $event.target.value)"
         >
-          <option value="">Выберите гипотезу</option>
+          <option value="">{{ experiments.length ? 'Выберите гипотезу' : 'Нет гипотез' }}</option>
           <option v-for="entry in experiments" :key="entry.id" :value="entry.id">
             {{ entry.title }}
           </option>

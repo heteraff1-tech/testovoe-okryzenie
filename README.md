@@ -22,7 +22,7 @@ Vite собирает сайт в `app/dist/`. Статическая публи
 - Для параметров состояния укажи `parameters: [{ id, label, options: [{ id, label }] }]`. Первое значение каждого параметра используется по умолчанию.
 - `Scenario.vue` получает `variant`, `step` и `parameters` через props. Событие `navigate` с идентификатором шага меняет экран и синхронизирует выпадающий список переходов.
 
-«Первый ввод веса» и «История замеров» — демо для проверки A/B, переходов и параметров. Корпус мокапа адаптирован из [PhonePreview СберЗдоровья](https://github.com/heteraff1-tech/SberZdorovie/blob/79b1997405586baaf03a1e03b94685777cf18ebc/app/src/components/PhonePreview.vue).
+Корпус мокапа адаптирован из [PhonePreview СберЗдоровья](https://github.com/heteraff1-tech/SberZdorovie/blob/79b1997405586baaf03a1e03b94685777cf18ebc/app/src/components/PhonePreview.vue).
 
 ## Перенос из Figma
 

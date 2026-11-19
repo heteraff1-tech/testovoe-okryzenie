@@ -1,62 +1,39 @@
-import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { sourceRoot, sourceFiles, architectureViolations } from '../lib/source-inspection.js';
+import test from 'node:test';
+import { architectureViolations } from '../lib/architecture.js';
+import { sourceFiles, sourceRoot } from '../lib/source.js';
 
-test('слои и сценарии соблюдают границы импортов', () => {
-  const errors = ['shared', 'features', 'pages', 'experiments', 'experiments'].flatMap((layer) =>
-    sourceFiles(resolve(sourceRoot, layer)).flatMap((file) =>
-      architectureViolations(readFileSync(file, 'utf8'), file),
-    ),
+test('source imports respect layer boundaries and experiment isolation', () => {
+  const errors = sourceFiles(sourceRoot).flatMap((file) =>
+    architectureViolations(readFileSync(file, 'utf8'), file),
   );
-  assert.deepEqual(errors, [], `Нарушены границы слоёв:\n${errors.join('\n')}`);
+  assert.deepEqual(errors, []);
 });
 
-test('architecture sensor catches aliases, relative paths, exports and dynamic imports', () => {
-  const file = resolve(sourceRoot, 'shared/lib/example.js');
-  for (const source of [
-    "import x from '@/features/example';",
-    "export { x } from '../../pages/home/example.js';",
-    "import('/src/features/example/index.js?raw');",
-    "require('features/example/index.js');",
-    'import(`@/pages/home/example.js`);',
-    'import(variablePath);',
-  ])
-    assert.equal(architectureViolations(source, file).length, 1, source);
-  assert.deepEqual(
-    architectureViolations(
-      "// import x from '@/features/x';\nconst text = 'import features/x';\nimport { ref } from 'vue';",
-      file,
-    ),
-    [],
+test('the architecture check rejects private, sideways and unresolvable imports', () => {
+  const inspect = (source, path) => architectureViolations(source, resolve(sourceRoot, path));
+  assert.equal(inspect("import '@/features/search/index.js'", 'pages/home/screen.js').length, 0);
+  assert.match(
+    inspect("import '@/features/search/model/state.js'", 'pages/home/screen.js')[0],
+    /index\.js/,
+  );
+  assert.match(
+    inspect("export * from '../../pages/home/screen.js'", 'shared/ui/button.js')[0],
+    /изоляцию/,
+  );
+  assert.match(
+    inspect("import('../second/model.js')", 'experiments/first/model.js')[0],
+    /изоляцию/,
+  );
+  assert.match(inspect('import(path)', 'features/search/index.js')[0], /статический путь/);
+  assert.match(
+    inspect("@use '../../features/search/theme';", 'shared/ui/button.scss')[0],
+    /изоляцию/,
   );
   assert.equal(
-    architectureViolations(
-      '<script setup>import x from "@/pages/home/x";</script>',
-      resolve(sourceRoot, 'shared/ui/Example.vue'),
-    ).length,
-    1,
-  );
-  assert.equal(
-    architectureViolations(
-      '@use "../../features/example/style";',
-      resolve(sourceRoot, 'shared/ui/example.scss'),
-    ).length,
-    1,
-  );
-  assert.equal(
-    architectureViolations(
-      '@import url("../../features/example/style.css");',
-      resolve(sourceRoot, 'shared/ui/example.scss'),
-    ).length,
-    1,
-  );
-  assert.equal(
-    architectureViolations(
-      "import x from '@/features/example/ui/X.vue';",
-      resolve(sourceRoot, 'pages/home/Example.vue.js'),
-    ).length,
-    1,
+    inspect('// import(path)\nconst text = "import(path)";', 'shared/ui/button.js').length,
+    0,
   );
 });

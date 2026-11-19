@@ -1,5 +1,5 @@
 {
-  "name": "experiment-stand",
+  "name": "bootstrap-vue-stand",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -10,25 +10,30 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "design:lookup": "node scripts/lookup-design-system.js",
+    "design:sync": "node scripts/sync-design-system.js",
     "test": "node --test tests/unit/*.test.js",
     "test:e2e": "playwright test",
-    "format": "prettier --config .prettierrc.json --write src tests ../README.md ../AGENTS.md vite.config.js playwright.config.js package.json .prettierrc.json",
-    "format:check": "prettier --config .prettierrc.json --check src tests ../README.md ../AGENTS.md vite.config.js playwright.config.js package.json .prettierrc.json",
-    "qa": "node --test tests/unit/*.test.js && npm run build && npx playwright test"
+    "format": "prettier --write src scripts tests design-system ../README.md ../AGENTS.md index.html vite.config.js playwright.config.js package.json",
+    "format:check": "prettier --check src scripts tests design-system ../README.md ../AGENTS.md index.html vite.config.js playwright.config.js package.json",
+    "qa": "npm run format:check && npm test && npm run build && npm run test:e2e"
   },
   "dependencies": {
+    "@popperjs/core": "2.11.8",
+    "bootstrap": "5.3.9",
     "vue": "3.5.30"
   },
   "devDependencies": {
-    "@babel/parser": "^7.29.14",
-    "@playwright/test": "^1.65.1",
+    "@babel/parser": "7.29.14",
+    "@playwright/test": "1.65.1",
     "@vitejs/plugin-vue": "6.0.4",
     "@vue/compiler-sfc": "3.5.30",
-    "postcss": "^8.5.33",
-    "postcss-scss": "^4.0.9",
-    "postcss-value-parser": "^4.2.0",
-    "prettier": "^3.10.1",
-    "sass": "^1.108.2",
-    "vite": "7.3.1"
+    "color-name": "2.1.0",
+    "postcss": "8.5.33",
+    "postcss-scss": "4.0.9",
+    "postcss-value-parser": "4.2.0",
+    "prettier": "3.10.1",
+    "sass": "1.108.2",
+    "vite": "7.3.8"
   }
 }

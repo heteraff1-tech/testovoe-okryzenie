@@ -1,0 +1,493 @@
+{
+  "upstream": "https://github.com/heteraff1-tech/desingSystem",
+  "revision": "89b78ce8f91f000a9ef9a9dc96d698c1a75449e2",
+  "figmaUrl": "https://www.figma.com/design/z0mUSQgmrlvdYjKAixYr41/Bootstrap-5-Design-System---UI-Kit--Community-?node-id=0-1",
+  "components": [
+    {
+      "figmaKey": "881dfad8d0277b5f728a09700d1c7de97007a301",
+      "figmaName": "breadcrumb",
+      "role": "Путь до страницы",
+      "implementation": ".breadcrumb",
+      "variants": "Divider=\"/\"",
+      "avoidWhen": "шаги формы",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-mapping.md#L14"
+    },
+    {
+      "figmaKey": "4219856f8d47e531971ca7ef135e48918161bb6e",
+      "figmaName": "navbar/responsive",
+      "role": "Шапка сайта",
+      "implementation": ".navbar",
+      "variants": "Expanded=false/true",
+      "avoidWhen": "нижняя навигация",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-mapping.md#L15"
+    },
+    {
+      "figmaKey": "5b39af0bd728cfcc906c05f41f1581f8208cafdc",
+      "figmaName": "navigation",
+      "role": "Меню разделов",
+      "implementation": ".nav",
+      "variants": "Mode=horizontal/vertical",
+      "avoidWhen": "панели одной страницы",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-mapping.md#L16"
+    },
+    {
+      "figmaKey": "d0d262024b6329501d02f0eb999d5a8d4f16acab",
+      "figmaName": "tabs/top",
+      "role": "Панели страницы",
+      "implementation": ".nav-tabs",
+      "variants": "Centered=false/true",
+      "avoidWhen": "переход между разделами",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-mapping.md#L17"
+    },
+    {
+      "figmaKey": "fc4a7923f63c2f3b16c28fd151515526655200db",
+      "figmaName": "pagination",
+      "role": "Страницы выдачи",
+      "implementation": ".pagination",
+      "variants": "Size=small/medium/large",
+      "avoidWhen": "табы",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-mapping.md#L18"
+    },
+    {
+      "figmaKey": "bf393423291e2ec4a7a0dab041bce846d5673201",
+      "figmaName": "dropdown-trigger-with-menu",
+      "role": "Контекстное меню",
+      "implementation": ".dropdown",
+      "variants": "Opened=false/true",
+      "avoidWhen": "выбор значения",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-mapping.md#L19"
+    },
+    {
+      "figmaKey": "fe4644fde5bb20f522d4e718d246a8ae401dac3c",
+      "figmaName": "accordion",
+      "role": "Несколько секций",
+      "implementation": ".accordion",
+      "variants": "Flush=false/true",
+      "avoidWhen": "главное действие",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-mapping.md#L20"
+    },
+    {
+      "figmaKey": "c74542cbb039c167bd7eee2d0f5d5f90da99ac25",
+      "figmaName": "collapse",
+      "role": "Одна раскрываемая область",
+      "implementation": ".collapse",
+      "variants": "Open Element=1st/close-all",
+      "avoidWhen": "группа секций",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-mapping.md#L21"
+    },
+    {
+      "figmaKey": "2691df266874651167cab38fc6fe59027a87c17e",
+      "figmaName": "offcanvas",
+      "role": "Шторка",
+      "implementation": ".offcanvas",
+      "variants": "Position=bottom/left/right",
+      "avoidWhen": "блокирующее подтверждение",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-mapping.md#L22"
+    },
+    {
+      "figmaKey": "99b6f7840bcb342f195310a0c379f8a4031038e7",
+      "figmaName": "modal",
+      "role": "Подтверждение",
+      "implementation": ".modal",
+      "variants": "Type=text; Size=default",
+      "avoidWhen": "обычная навигация",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-mapping.md#L23"
+    },
+    {
+      "figmaKey": "3aad87adb4de2ef06be25cffb9cc28a7864c7268",
+      "figmaName": "button",
+      "role": "Действие",
+      "implementation": ".btn",
+      "variants": "Type=primary/secondary; State=normal/disabled",
+      "avoidWhen": "иконка закрытия",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-controls.md#L7"
+    },
+    {
+      "figmaKey": "2381bb462d681d71f3ab425e0664d1f8a107171d",
+      "figmaName": "close-button",
+      "role": "Закрыть",
+      "implementation": ".btn-close",
+      "variants": "State=normal/disabled",
+      "avoidWhen": "обычный CTA",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-controls.md#L8"
+    },
+    {
+      "figmaKey": "37a7ef78185f79fedccdf2d06dbb8e424b6882a4",
+      "figmaName": "button-group",
+      "role": "Группа действий",
+      "implementation": ".btn-group",
+      "variants": "Direction=horizontal",
+      "avoidWhen": "независимые блоки",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-controls.md#L9"
+    },
+    {
+      "figmaKey": "851a36eb979496a12c0b93de49bbeb99b373b6b7",
+      "figmaName": "input",
+      "role": "Короткий текст",
+      "implementation": ".form-control",
+      "variants": "State=normal/focused/disabled",
+      "avoidWhen": "абзац",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-controls.md#L10"
+    },
+    {
+      "figmaKey": "2755eda6ae679eb6ae1843b90513112fac37f906",
+      "figmaName": "input-number",
+      "role": "Число",
+      "implementation": ".form-control",
+      "variants": "State=normal/focused/disabled",
+      "avoidWhen": "дата или время",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-controls.md#L11"
+    },
+    {
+      "figmaKey": "e2fc9579abefb75655d771c11fa5ae2cfdb702c2",
+      "figmaName": "textarea",
+      "role": "Длинный текст",
+      "implementation": ".form-control",
+      "variants": "Validation=normal/invalid",
+      "avoidWhen": "число",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-controls.md#L12"
+    },
+    {
+      "figmaKey": "50d64532be53de6b1fca35bb33786b4553e5a8c1",
+      "figmaName": "password",
+      "role": "Пароль",
+      "implementation": ".form-control",
+      "variants": "Visible=false/true",
+      "avoidWhen": "обычный текст",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-controls.md#L13"
+    },
+    {
+      "figmaKey": "01e474c08be431709549db1cbe6026b12110222c",
+      "figmaName": "search-box",
+      "role": "Поиск",
+      "implementation": ".form-control",
+      "variants": "Enter=icon/text",
+      "avoidWhen": "ввод без поиска",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-controls.md#L14"
+    },
+    {
+      "figmaKey": "03052880730500ab6786999031f1c30795ba2781",
+      "figmaName": "select",
+      "role": "Выбор из списка",
+      "implementation": ".form-select",
+      "variants": "Multiple=false",
+      "avoidWhen": "меню действий",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-controls.md#L15"
+    },
+    {
+      "figmaKey": "6bc099a72318efd61a049117ec31e055b6e7bf04",
+      "figmaName": "datalist",
+      "role": "Подсказки ввода",
+      "implementation": ".form-control",
+      "variants": "State=normal/opened",
+      "avoidWhen": "закрытый список",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-controls.md#L16"
+    },
+    {
+      "figmaKey": "833c89b98540fbb8de818561772960ba6bac49ed",
+      "figmaName": "checkbox-input",
+      "role": "Одна отметка",
+      "implementation": ".form-check",
+      "variants": "Checked=true/false",
+      "avoidWhen": "один из вариантов",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-controls.md#L17"
+    },
+    {
+      "figmaKey": "219d371fd9e16f0586146b3e661d5056b40a70a1",
+      "figmaName": "checkbox-group",
+      "role": "Несколько отметок",
+      "implementation": ".form-check",
+      "variants": "Layout=vertical/horizontal",
+      "avoidWhen": "ровно один ответ",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-controls.md#L18"
+    },
+    {
+      "figmaKey": "029bb627c175bc2bceaf965b340f753e440ac901",
+      "figmaName": "radio-group",
+      "role": "Один ответ",
+      "implementation": ".form-check",
+      "variants": "Layout=vertical/horizontal",
+      "avoidWhen": "несколько ответов",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-controls.md#L19"
+    },
+    {
+      "figmaKey": "7f814ef073e86a0c464fbcf72c38d8ea5833d720",
+      "figmaName": "switch-input",
+      "role": "Настройка сразу",
+      "implementation": ".form-switch",
+      "variants": "Checked=true/false",
+      "avoidWhen": "отправка формы",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-controls.md#L20"
+    },
+    {
+      "figmaKey": "28277defee4a8ba819ccbcafcb62b43ed7a84693",
+      "figmaName": "range",
+      "role": "Число ползунком",
+      "implementation": ".form-range",
+      "variants": "From - To=false",
+      "avoidWhen": "точный ввод",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-forms.md#L7"
+    },
+    {
+      "figmaKey": "a342304e4d658b24c8440a9be78f7c351c726a39",
+      "figmaName": "date-picker",
+      "role": "Дата",
+      "implementation": null,
+      "variants": "Ranged=false/true",
+      "avoidWhen": "время суток",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-forms.md#L8"
+    },
+    {
+      "figmaKey": "e20c9171b3123ae8aa4a89ccc66b4d227f5f6725",
+      "figmaName": "time-picker",
+      "role": "Время",
+      "implementation": null,
+      "variants": "Ranged=false/true",
+      "avoidWhen": "дата",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-forms.md#L9"
+    },
+    {
+      "figmaKey": "90afdd43c9e4785fa238f330724792a9e7109b22",
+      "figmaName": "color-picker",
+      "role": "Выбрать цвет",
+      "implementation": null,
+      "variants": "State=normal/focused",
+      "avoidWhen": "статус",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-forms.md#L10"
+    },
+    {
+      "figmaKey": "6a5f52405e05bb97d32ee8299f6db2886f1136d1",
+      "figmaName": "rate",
+      "role": "Оценка звёздами",
+      "implementation": null,
+      "variants": "Items=quintuple",
+      "avoidWhen": "прогресс",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-forms.md#L11"
+    },
+    {
+      "figmaKey": "3df9a0dbfa9d11590eec93fc12e1f545c6471ab8",
+      "figmaName": "file-input",
+      "role": "Выбрать файл",
+      "implementation": ".form-control",
+      "variants": "Validation=normal/invalid",
+      "avoidWhen": "зона drop",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-forms.md#L12"
+    },
+    {
+      "figmaKey": "aa8f03d558aebf171e34880207fb39c4d76f185f",
+      "figmaName": "upload/dragger",
+      "role": "Перетащить файл",
+      "implementation": null,
+      "variants": "base",
+      "avoidWhen": "единственный путь загрузки",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-forms.md#L13"
+    },
+    {
+      "figmaKey": "85a3b6088a59bbcad5fac7fa6dc8df9ef558745f",
+      "figmaName": "upload-list/images",
+      "role": "Очередь изображений",
+      "implementation": null,
+      "variants": "Direction=horizontal/vertical",
+      "avoidWhen": "список документов",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-forms.md#L14"
+    },
+    {
+      "figmaKey": "cf52f44b7188165bc4c0c8404faefed761c5ea44",
+      "figmaName": "components/upload-list/files",
+      "role": "Очередь файлов",
+      "implementation": null,
+      "variants": "Items=1/2/3",
+      "avoidWhen": "галерея",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-forms.md#L15"
+    },
+    {
+      "figmaKey": "eee65e128989a9e1ff7fbe6fa7089650b7a76121",
+      "figmaName": "transfer",
+      "role": "Перенести между списками",
+      "implementation": null,
+      "variants": "base",
+      "avoidWhen": "одно поле выбора",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-forms.md#L16"
+    },
+    {
+      "figmaKey": "bd83a70884e71e6e543867241e235e1157aa0881",
+      "figmaName": "alert",
+      "role": "Сообщение в потоке",
+      "implementation": ".alert",
+      "variants": "Type=info/warning/danger/success",
+      "avoidWhen": "сообщение только цветом",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-content.md#L7"
+    },
+    {
+      "figmaKey": "ef1c26a16d578bcc56c9d4abed9f90b4aff58346",
+      "figmaName": "badge",
+      "role": "Метка статуса",
+      "implementation": ".badge",
+      "variants": "Type=normal/pill",
+      "avoidWhen": "действие",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-content.md#L8"
+    },
+    {
+      "figmaKey": "c8d3e642390b4028d58635542d3c63fac6274a70",
+      "figmaName": "toast",
+      "role": "Краткое уведомление",
+      "implementation": ".toast",
+      "variants": "Color=default/success",
+      "avoidWhen": "обязательная ошибка",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-content.md#L9"
+    },
+    {
+      "figmaKey": "7ffe7eb1d4ca7fe6ca95f4cfe86ac2cf695c6744",
+      "figmaName": "progress",
+      "role": "Известный прогресс",
+      "implementation": ".progress",
+      "variants": "Striped=false; Label=true",
+      "avoidWhen": "неизвестный процент",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-content.md#L10"
+    },
+    {
+      "figmaKey": "74763cf846227e3e5d2efd53721ec6ae274ce84e",
+      "figmaName": "spinner",
+      "role": "Неизвестный прогресс",
+      "implementation": ".spinner-border",
+      "variants": "Type=border",
+      "avoidWhen": "известный процент",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-content.md#L11"
+    },
+    {
+      "figmaKey": "7c2c6c64ac7afb49d74a7a6cfecc700c99888dad",
+      "figmaName": "placeholders",
+      "role": "Загрузка структуры",
+      "implementation": ".placeholder",
+      "variants": "Type=multi-line/image + text",
+      "avoidWhen": "нет данных",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-content.md#L12"
+    },
+    {
+      "figmaKey": "8067644a1fc5625ca9d07a539fdfa3635b2e871a",
+      "figmaName": "tooltip",
+      "role": "Короткая подсказка",
+      "implementation": ".tooltip",
+      "variants": "Auto Width=true",
+      "avoidWhen": "обязательная инструкция",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-content.md#L13"
+    },
+    {
+      "figmaKey": "2a5c7dac69f12249030f6bf55e38469c5106872b",
+      "figmaName": "popover",
+      "role": "Дополнение к элементу",
+      "implementation": ".popover",
+      "variants": "Title=false/true",
+      "avoidWhen": "форма подтверждения",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-content.md#L14"
+    },
+    {
+      "figmaKey": "3d234a55f5657705e466b06947052e570ec5da6d",
+      "figmaName": "empty",
+      "role": "Нет данных",
+      "implementation": null,
+      "variants": "Type=basic/simple",
+      "avoidWhen": "пока идёт загрузка",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-content.md#L15"
+    },
+    {
+      "figmaKey": "98903e930d866faf4a280b5c424a4de36f7c8401",
+      "figmaName": "card",
+      "role": "Карточка контента",
+      "implementation": ".card",
+      "variants": "Type=vertical/horizontal",
+      "avoidWhen": "метрика «Здоровья»",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-content.md#L16"
+    },
+    {
+      "figmaKey": "2c1efacb021da6e83ca6c0a9dcf6024fda230c53",
+      "figmaName": "carousel",
+      "role": "Листать медиа",
+      "implementation": ".carousel",
+      "variants": "Dark=false/true",
+      "avoidWhen": "единственный доступ к действию",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-content.md#L17"
+    },
+    {
+      "figmaKey": "cb5210fe24d8b1ab60f0c9eb590ad5042460141b",
+      "figmaName": "list-group",
+      "role": "Список",
+      "implementation": ".list-group",
+      "variants": "Action=True/False",
+      "avoidWhen": "табличные данные",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-content.md#L18"
+    },
+    {
+      "figmaKey": "37ff84a0e857118dfa72b3a1fedd470b8f11abfa",
+      "figmaName": "divider",
+      "role": "Разделитель",
+      "implementation": "hr",
+      "variants": "Type=horizontal",
+      "avoidWhen": "заголовок",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-content.md#L19"
+    },
+    {
+      "figmaKey": "4f50062fc898074bf3c9932c1b85541841a917b5",
+      "figmaName": "image",
+      "role": "Изображение",
+      "implementation": ".img-fluid",
+      "variants": "Aspect ratio=1:1/16:9",
+      "avoidWhen": "подпись рисунка",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-content.md#L20"
+    },
+    {
+      "figmaKey": "503bfddc93bcce000c9d3ecbdaf2dd03f71a38af",
+      "figmaName": "figure",
+      "role": "Иллюстрация с подписью",
+      "implementation": ".figure",
+      "variants": "Text=start/end",
+      "avoidWhen": "галерея",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-content.md#L21"
+    },
+    {
+      "figmaKey": "f501691354c0e80ce0e248aa223bb1a1840aa7c0",
+      "figmaName": "avatar",
+      "role": "Автор",
+      "implementation": null,
+      "variants": "Shape=circle; Type=text/image",
+      "avoidWhen": "статус",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-content.md#L22"
+    },
+    {
+      "figmaKey": "181bb2047578d4b2a3f0679ba574f7827efb48c9",
+      "figmaName": "avatar-group",
+      "role": "Несколько авторов",
+      "implementation": null,
+      "variants": "Items=2/3/4/5/6",
+      "avoidWhen": "один автор",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-content.md#L23"
+    },
+    {
+      "figmaKey": "048d87a27730e87f567b6de8c2552314872c1a07",
+      "figmaName": "comment/nested",
+      "role": "Ветка комментариев",
+      "implementation": null,
+      "variants": "base",
+      "avoidWhen": "список уведомлений",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-content.md#L24"
+    },
+    {
+      "figmaKey": "79893258a6a62daf4fecdcce192849b9f2c1d899",
+      "figmaName": "comment/comment-editor",
+      "role": "Написать комментарий",
+      "implementation": null,
+      "variants": "base",
+      "avoidWhen": "переписка",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-content.md#L25"
+    },
+    {
+      "figmaKey": "0f057fac0653838a9e7460d6492dd403333100e6",
+      "figmaName": "tag-group",
+      "role": "Группа тегов",
+      "implementation": null,
+      "variants": "Count=1/2/3",
+      "avoidWhen": "статус",
+      "source": "https://github.com/heteraff1-tech/desingSystem/blob/89b78ce8f91f000a9ef9a9dc96d698c1a75449e2/catalog/bootstrap-content.md#L26"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+@import 'bootstrap/scss/bootstrap';
+
+:root {
+  @each $step, $size in $spacers {
+    --ds-space-#{$step}: #{$size};
+  }
+}

@@ -4,7 +4,7 @@ import snapshot from '../../design-system/bootstrap-catalog.json' with { type: '
 test('the live catalog finds components by published key and flags missing Vue wrappers', async ({
   page,
 }) => {
-  await page.goto('/');
+  await page.goto('/#library');
   await expect(page.getByRole('heading', { name: 'Bootstrap 5.3', exact: true })).toBeVisible();
   await expect(page.getByRole('listitem').filter({ has: page.getByRole('link') })).toHaveCount(
     snapshot.components.length,
@@ -29,7 +29,7 @@ test('mobile layout has no horizontal overflow and Bootstrap dialog restores key
 }) => {
   await page.setViewportSize({ width: 375, height: 812 });
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await page.goto('/');
+  await page.goto('/#library');
   await expect(page.getByRole('heading', { name: 'Bootstrap 5.3', exact: true })).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(375);
 
@@ -43,7 +43,7 @@ test('mobile layout has no horizontal overflow and Bootstrap dialog restores key
 });
 
 test('switching themes changes the resolved Bootstrap body color', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/#library');
   const theme = page.getByRole('button', { name: 'Тёмная тема' });
   const main = page.getByRole('main');
   const readColor = () => main.evaluate((element) => getComputedStyle(element).color);
